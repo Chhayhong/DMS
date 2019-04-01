@@ -1,0 +1,43 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'push' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+        <div class="sidebar">
+            <button routerLinkActive="active" [routerLink]="['/apps/home']"class="sidebar-item"   mat-button>
+              <mat-icon>computer</mat-icon>
+              <span>ផ្ទាំងគ្រប់គ្រង</span>
+            </button>
+          
+            <button routerLinkActive="active" [routerLink]="['/apps/monk']" class="sidebar-item"   mat-button>
+              <mat-icon>book</mat-icon>
+              <span>ចុះបញ្ជីនាមព្រះសង្ឃ</span>
+            </button>
+            <button routerLinkActive="active" [routerLink]="['/apps/monkhouse']" class="sidebar-item"  mat-button>
+              <mat-icon>home</mat-icon>
+              <span>ចុះឈ្មោះ កុដិ</span>
+            </button>
+            <button routerLinkActive="active" [routerLink]="['/apps/pagoda']" class="sidebar-item"  mat-button>
+              <mat-icon>add_location</mat-icon>
+              <span>ចុះឈ្មោះ វត្ត</span>
+            </button>
+          </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>eduCom</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

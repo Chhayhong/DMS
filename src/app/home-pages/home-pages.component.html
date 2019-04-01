@@ -1,0 +1,21 @@
+<app-front-header class="header"></app-front-header>   
+
+<mat-sidenav-container class="example-container">
+        <mat-sidenav #sidenav [mode]="push">
+          <p><button mat-button (click)="sidenav.toggle()"></button></p>
+    <app-side-bar></app-side-bar>
+        </mat-sidenav>
+      
+        <mat-sidenav-content  class="flx1">
+            <!-- <app-front-header class="header"></app-front-header>    -->
+          <button mat-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+         
+
+          <div class="homeContainer">
+<app-home-category class="paddingBottom"></app-home-category>
+<app-feature-products class="paddingBottom"></app-feature-products>
+<app-popular-list class="paddingBottom"></app-popular-list>
+</div>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+      

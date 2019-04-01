@@ -1,0 +1,33 @@
+<mat-toolbar class="puc-sidebar">
+  <mat-toolbar-row>
+    <button mat-button [routerLink]="['/homepage']"><h3>ទំព័រមុខ</h3></button>
+
+    <span class="example-spacer"></span>
+     <!-- <h1 class="kh-font">ស្វាគមន៍ {{user?.user?.email}}មកកាន់ទំព័រគ្រប់គ្រង</h1> -->
+    <mat-icon class="example-icon"></mat-icon>
+    <!-- <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <button mat-button >
+                <div class="flx1">
+                    <mat-icon>account_circle
+                    </mat-icon>
+                  </div>
+            </button>
+          </mat-expansion-panel-header>
+          <button  (click)="logOut()" mat-button  >  
+            <span>Sign out</span>
+           </button>
+        </mat-expansion-panel>
+      </mat-accordion> -->
+      <!-- <button mat-button [matMenuTriggerFor]="menu" *ngIf="auth.user | async as user">  <img class="profile" [src]="user.photoURL" alt="user profile">{{user.displayName}}</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>{{user?.user?.email}}</button>
+
+</mat-menu> -->
+  </mat-toolbar-row>
+</mat-toolbar>
+<!-- <button  (click)="logOut()" mat-button  >  
+            <span>Sign out</span>
+           </button> -->

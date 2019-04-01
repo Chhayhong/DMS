@@ -1,0 +1,151 @@
+<!-- <div class="Dialog" >
+<h1 mat-dialog-title>ចុះឈ្មោះវត្ត</h1>
+<div mat-dialog-content>
+    <form [formGroup]="form">
+        <mat-form-field class="formControls">
+            <input matInput placeholder="វត្ត" [formControl]="wat">
+            <mat-hint>Enter វត្ត </mat-hint>
+            <mat-error *ngIf="wat.hasError('required')">
+              វត្ត is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        <mat-form-field class="formControls">
+          <input matInput placeholder="ភូមិ" [formControl]="village">
+          <mat-hint>Enter ភូមិ </mat-hint>
+          <mat-error *ngIf="village.hasError('required')">
+            ភូមិ is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="formControls">
+          <input matInput placeholder="ឃុំ​-សង្កាត់" [formControl]="district">
+          <mat-hint>Enter ឃុំ</mat-hint>
+          <mat-error *ngIf="district.hasError('required')">
+            ឃុំ is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="formControls">
+          <input matInput placeholder="ស្រុក-ខណ្ឌ" [formControl]="commune">
+          <mat-hint>Enter ស្រុក</mat-hint>
+          <mat-error *ngIf="commune.hasError('required')">
+            ស្រុក is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="formControls">
+          <input matInput placeholder="ខេត្ត-រាជធានី​" [formControl]="province">
+          <mat-hint>Enter ខេត្ត </mat-hint>
+          <mat-error *ngIf="province.hasError('required')">
+            ខេត្ត is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+      </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close('no')">Cancel</button>
+  <button mat-button [disabled]="!form.valid || process"
+  (click)="_onSave(form.value)">{{process?'Saving...':'Save'}}</button>
+  </div> -->
+  <h1 mat-dialog-title>Add new category</h1>
+  <div mat-dialog-content>
+    <form [formGroup]="form" class="example-form">
+      <mat-form-field class="formControls">
+        <input matInput placeholder="វត្ត" [formControl]="wat">
+        <mat-hint>Enter full name wat!</mat-hint>
+        <mat-error *ngIf="wat.hasError('required')">
+          វត្ត is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- <mat-form-field class="formControls">
+        <input matInput placeholder="ភូមិ" [formControl]="village">
+        <mat-hint>Enter full name village!</mat-hint>
+        <mat-error *ngIf="village.hasError('required')">
+          ភូមិ is <strong>required</strong>
+        </mat-error>
+      </mat-form-field> -->
+
+      <!-- <mat-form-field class="example-full-width">
+        <input matInput placeholder="ភូមិ" aria-label="State" 
+        [matAutocomplete]="auto" [formControl]="village">
+
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let state of filteredStates | async" [value]="state">   
+            <span>{{state?.pvillage}}</span>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field> -->
+
+      <mat-form-field>
+        <mat-label>ភូមិ</mat-label>
+        <mat-select [formControl]="village">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let state of states" [value]="state" >{{state?.pvillage}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="village.hasError('required')">
+          ភូមិ is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>ស្រុក-ខណ្ឌ</mat-label>
+        <mat-select [formControl]="commune">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let state of states" [value]="state" >{{state?.pcommune}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="commune.hasError('required')">
+          ស្រុក-ខណ្ឌ is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>ស្រុក-ខណ្ឌ</mat-label>
+        <mat-select [formControl]="district">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let state of states" [value]="state" >{{state?.pdistrict}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="district.hasError('required')">
+          ស្រុក-ខណ្ឌ is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>ខេត្ត-រាជធានី​</mat-label>
+        <mat-select [formControl]="province">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let state of states" [value]="state" >{{state?.pprovince}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="province.hasError('required')">
+          ខេត្ត-រាជធានី is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- <mat-form-field class="formControls">
+        <input matInput placeholder="ឃុំ" [formControl]="commune">
+        <mat-hint>Enter full name ឃុំ!</mat-hint>
+        <mat-error *ngIf="district.hasError('required')">
+          ឃុំ is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="formControls">
+        <input matInput placeholder="ស្រុក" [formControl]="district">
+        <mat-hint>Enter full name ស្រុក!</mat-hint>
+        <mat-error *ngIf="district.hasError('required')">
+          ស្រុក is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="formControls">
+        <input matInput placeholder="ខេត្ត-រាជធានី​" [formControl]="province">
+        <mat-hint>Enter full name ខេត្ត-រាជធានី​!</mat-hint>
+        <mat-error *ngIf="province.hasError('required')">
+          ខេត្ត-រាជធានី​ is <strong>required</strong>
+        </mat-error>
+      </mat-form-field> -->
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="dialogRef.close('no')">Cancel</button>
+    <button mat-button (click)="_onSave(form.value)" cdkFocusInitial>បញ្ចូល</button>
+  </div>

@@ -1,0 +1,58 @@
+<div class="container">
+  <mat-accordion class="subcontainer">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+        អាស័យដ្ឋានទីក្រុងភ្នំពេញ
+        </mat-panel-title>
+        <mat-panel-description>
+          បញ្ចូលអាស័យដ្ឋានទីក្រុងភ្នំពេញទីនេះ
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="my-pcard">
+        <form [formGroup]="form">
+  
+            <mat-form-field class="my-form">
+                <input matInput placeholder="ភូមិ" [formControl]="pvillage">
+                <mat-hint>ភូមផ្កាដូង</mat-hint>
+                <mat-error *ngIf="pvillage.hasError('required')">
+                  ភូមិ is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+          <mat-form-field class="my-form">
+            <input matInput placeholder="សង្កាត់" [formControl]="pcommune">
+            <mat-hint>ឈូក</mat-hint>
+            <mat-error *ngIf="pcommune.hasError('required')">
+              ឃុំ is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="my-form">
+            <input matInput placeholder="ខណ្ឌ" [formControl]="pdistrict">
+            <mat-hint>ក្រូចឆ្នា</mat-hint>
+            <mat-error *ngIf="pdistrict.hasError('required')">
+              ស្រុក is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="my-form">
+            <input matInput placeholder="រាជធានី" [formControl]="pprovince">
+            <mat-hint>កំពង់ចាម</mat-hint>
+            <mat-error *ngIf="pprovince.hasError('required')">
+              ខេត្ត is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+        </form>
+
+        <button matTooltip="បញ្ចូលទិន្ន័យខាងលើ" color="primary" mat-button [disabled]="!form.valid || process"
+          (click)="_onSave(form.value)">
+          <h4>{{process?'កំពុងបញ្ចូល...':'បញ្ចូល'}}</h4>
+        </button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <app-phnom-penh-address class="my-data"></app-phnom-penh-address>
+</div>

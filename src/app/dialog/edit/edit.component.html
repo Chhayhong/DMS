@@ -1,0 +1,44 @@
+<form class="Dialog" [formGroup]="form">
+  <h1 mat-dialog-title>កែតម្រូវកុដិ</h1>
+<div validator>
+<mat-form-field>
+<input  matInput type="text" placeholder="កុដិឈ្មោះ" formControlName="wat">
+<div *ngIf="form.controls['wat'].hasError('required') && form.controls['wat'].touched"
+ class="error-message">This field is required</div>
+</mat-form-field>
+</div>
+<div validator>
+<mat-form-field>
+<input  matInput type="text"  placeholder="មេកុដិ" formControlName="village">
+<div *ngIf="form.controls['village'].hasError('required') && form.controls['village'].touched"
+ class="error-message">This field is required</div>
+</mat-form-field>
+</div>
+<div validator>
+<mat-form-field>
+<input  matInput type="text"  placeholder="ឆ្នាំកសាង" formControlName="district">
+<div *ngIf="form.controls['district'].hasError('required') && form.controls['district'].touched"
+class="error-message">This field is required</div>
+</mat-form-field>
+</div>
+
+<div validator>
+<mat-form-field>
+<input  matInput type="text"  placeholder="ជាន់" formControlName="district2">
+<div *ngIf="form.controls['district2'].hasError('required') && form.controls['district2'].touched"
+class="error-message">This field is required</div>
+</mat-form-field>
+</div>
+<div validator>
+  <mat-form-field>
+  <input  matInput type="text"  placeholder="ជាន់" formControlName="province">
+  <div *ngIf="form.controls['province'].hasError('required') && form.controls['province'].touched"
+  class="error-message">This field is required</div>
+  </mat-form-field>
+  </div>
+  
+</form>
+<button mat-button (click)="dialogRef.close('no')">Close</button>
+<button mat-button [disabled]="!form.valid || process"
+(click)="onUpdate(form.value)">{{process?'Saving...':'Save'}}
+</button>

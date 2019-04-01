@@ -1,0 +1,194 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "/assets/app.scss";
+
+@font-face {
+  font-family: Kh-Battambang;
+  src: url("./assets/dh-bokor.ttf");
+  
+}
+
+@font-face {
+  font-family: Koulen;
+  src: url("./assets/khmer_M1.volt.ttf");
+  
+}
+
+html,
+body {
+  background: rgb(248, 248, 248);
+  font-family: 'Kh-Battambang', sans-serif;
+  height: 100vh;
+}
+
+.kh-font {
+  font-family: 'Kh-Battambang', sans-serif;
+  line-height: 30px;
+  text-align: justify;
+  font-size: 16px;
+}
+h1 {
+  font-family: 'Koulen', 'Google Sans', Roboto, sans-serif;;
+  text-align: center;
+  font-size: 18px;
+  color: #005ce6;
+}
+
+h2 {
+  font-family: 'Kh-Battambang', sans-serif;
+  font-size: 18px;
+  color: #005ce6;
+}
+
+h3 {
+  font-family: 'Kh-Battambang', sans-serif;
+  font-size: 16px;
+  color: #005ce6;
+}
+p {
+  font-family: 'Kh-Battambang', sans-serif;
+  text-align: left;
+  font-size: 14px;
+}
+
+.flx1 {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+.mat-elevation-z8 {  width: 1085px;}
+.profile{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.center {
+  align-self: auto;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  color: #333;
+  font-weight: 800;
+  font-family: 'Kh-Battambang', 'Google Sans', Roboto, sans-serif;
+
+}
+
+.form-control.ng-touched.ng-invalid {
+  border: 2px solid red;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+.app-layout {
+  display: flex;
+  flex-direction: row;
+  padding-top: 64px;
+}
+
+.sidebar {
+  background-color: #f5f5f5;
+  width: 260px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .mat-button-wrapper{}
+  .mat-expansion-panel-header{
+    padding: 0px 0px;
+    background-color: #f5f5f5;
+  
+  }
+  .mat-expansion-panel-body{
+    padding: 0px 0px;
+    background-color: #f5f5f5;
+  }
+  .sidebar-item {
+    padding-left: 8px 16px;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+  
+    .mat-icon {
+      margin-right: 8px;
+    }
+
+    &.active {
+      color: #ff5ace;
+
+      .mat-icon {
+        color: #ff5ace;
+      }
+    }
+	
+	span {font-family: 'Kh-Battambang', sans-serif;}
+
+  }
+}
+.data-table {
+  min-width: 150px;
+  max-width: 900px;
+  td.mat-cell, td.mat-footer-cell, th.mat-header-cell{
+    font-size: 15px;
+    padding-left: 20px;
+    font-family: 'Kh-Battambang', 'Google Sans', Roboto, sans-serif;
+  }
+  td.mat-cell,
+  td.mat-footer-cell,
+  th.mat-header-cell th.mat-header-cell {
+    padding-left: 20px;
+    font-size: 14px;
+    font-family: 'Kh-Battambang', 'Google Sans', Roboto, sans-serif;
+
+  }
+}
+
+
+.puc-sidebar {
+  &.mat-toolbar {
+    position: absolute;
+  }
+}
+
+.app-contain {
+  width: 100%;
+}
+
+.nav-category {
+  display: flex;
+  width: 100vh;
+  margin: 24px;
+  flex-direction: row;
+  font-size: 14px;
+  font-family: koulen;
+  font-family: 'Kh-Battambang', 'Google Sans', Roboto, sans-serif;
+
+  h4, span{
+    flex: 1;
+    font-family: 'Kh-Battambang', 'Google Sans', Roboto, sans-serif;
+  }
+
+  
+}
+
+.tooltip {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+
+.button {
+  display: flex;
+  padding: 10px;
+}

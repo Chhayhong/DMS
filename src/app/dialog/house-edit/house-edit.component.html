@@ -1,0 +1,48 @@
+<form class="Dialog" [formGroup]="form">
+        <h1 mat-dialog-title>កែតម្រូវកុដិ</h1>
+  <div validator>
+      <mat-form-field>
+      <input  matInput type="text" placeholder="កុដិឈ្មោះ" formControlName="homeName">
+      <div *ngIf="form.controls['homeName'].hasError('required') && form.controls['homeName'].touched"
+       class="error-message">This field is required</div>
+      </mat-form-field>
+  </div>
+  <div validator>
+      <mat-form-field>
+      <input  matInput type="text"  placeholder="មេកុដិ" formControlName="homeLeader">
+      <div *ngIf="form.controls['homeLeader'].hasError('required') && form.controls['homeLeader'].touched"
+       class="error-message">This field is required</div>
+      </mat-form-field>
+  </div>
+  <div validator>
+    <mat-form-field>
+    <input  matInput type="text"  placeholder="ឆ្នាំកសាង" formControlName="homeBuildDate">
+    <div *ngIf="form.controls['homeBuildDate'].hasError('required') && form.controls['homeBuildDate'].touched"
+     class="error-message">This field is required</div>
+    </mat-form-field>
+</div>
+
+<div validator>
+  <mat-form-field>
+  <input  matInput type="text"  placeholder="ជាន់" formControlName="homeFloors">
+  <div *ngIf="form.controls['homeFloors'].hasError('required') && form.controls['homeFloors'].touched"
+   class="error-message">This field is required</div>
+  </mat-form-field>
+</div>
+
+  <div validator>
+  <mat-form-field class="example-full-width">
+    <input matInput aria-label="State"   placeholder="វត្ត" 
+    [matAutocomplete]="auto" [formControl]="category">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let state of filteredStates | async" [value]="state">   
+        <span>{{state.wat}}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>
+</form>
+<button mat-button (click)="dialogRef.close('no')">Close</button>
+<button mat-button [disabled]="!form.valid || process"
+ (click)="onUpdate(form.value)">{{process?'Saving...':'Save'}}
+</button>

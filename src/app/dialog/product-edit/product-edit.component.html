@@ -1,0 +1,249 @@
+<mat-horizontal-stepper linear #stepper class="Dialog">
+  <mat-step [stepControl]="form">
+    <form [formGroup]="form">
+      <ng-template matStepLabel>គោត្តនាម នាមបញ្ញត្តិ</ng-template>
+      <mat-form-field class="formControls">
+          <input matInput placeholder="គោត្តនាម" [formControl]="lastName">
+          <mat-hint>ថាត</mat-hint>
+          <mat-error *ngIf="lastName.hasError('required')">
+              គោត្តនាម is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+      <mat-form-field class="formControls">
+        <input matInput placeholder="នាម" [formControl]="firstName">
+        <mat-hint>ឆៃហង្ស</mat-hint>
+        <mat-error *ngIf="firstName.hasError('required')">
+          នាម is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+
+
+      <mat-form-field class="formControls">
+        <input matInput placeholder="ឈ្មោះឡាតាំង" [formControl]="enName">
+        <mat-hint>THAT CHHAYHONG</mat-hint>
+        <mat-error *ngIf="enName.hasError('required')">
+          ឈ្មោះឡាតាំង is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="formControls">
+        <input matInput placeholder="នាមបញ្ញត្តិ" [formControl]="subName">
+        <mat-hint>ឥន្ទប្បញ្ញោ</mat-hint>
+        <mat-error *ngIf="subName.hasError('required')">
+          នាមបញ្ញត្តិ is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="formControls">
+        <input matInput placeholder="ជនជាតិ" [formControl]="nation">
+        <mat-hint>ខ្មែរ</mat-hint>
+        <mat-error *ngIf="nation.hasError('required')">
+          ជនជាតិ is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      
+      <mat-form-field class="formControls">
+          <input matInput placeholder="សញ្ជាតិ" [formControl]="nationality">
+          <mat-hint>ខ្មែរ</mat-hint>
+          <mat-error *ngIf="nationality.hasError('required')">
+            សញ្ជាតិ is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+       
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="form">
+    <form [formGroup]="form">
+      <ng-template matStepLabel>ថ្ងៃ ខែ​ ឆ្នាំ ទីកន្លែងកំណើត</ng-template>
+
+
+      <mat-form-field class="example-full-width">
+        <input matInput [matDatepicker]="picker" placeholder="ថ្ងៃ ខែ ឆ្នាំកំណើត" [formControl]="birthOfDate">
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="birthOfDate.hasError('required')">
+          ថ្ងៃ ខែ ឆ្នាំកំណើត is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button (click)="picker.open()">Open</button>
+
+
+      <mat-form-field class="formControls">
+        <input matInput placeholder="ភូមិ" [formControl]="village">
+        <mat-hint>ភូមផ្កាដូង</mat-hint>
+        <mat-error *ngIf="village.hasError('required')">
+            ភូមិ is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="formControls">
+          <input matInput placeholder="ឃុំ" [formControl]="commune">
+          <mat-hint>ភូមផ្កាដូង</mat-hint>
+          <mat-error *ngIf="commune.hasError('required')">
+              ឃុំ is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="formControls">
+            <input matInput placeholder="ស្រុក" [formControl]="district">
+            <mat-hint>ភូមផ្កាដូង</mat-hint>
+            <mat-error *ngIf="district.hasError('required')">
+                ស្រុក is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="formControls">
+              <input matInput placeholder="ខេត្ត" [formControl]="province">
+              <mat-hint>ភូមផ្កាដូង</mat-hint>
+              <mat-error *ngIf="province.hasError('required')">
+                  ខេត្ត is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+       
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+
+  <mat-step [stepControl]="form">
+    <form [formGroup]="form">
+      <ng-template matStepLabel>ថ្ងៃ ខែ ឆ្នាំ ទីកន្លែងបូស</ng-template>
+
+      <mat-form-field class="example-full-width">
+        <input matInput [matDatepicker]="picker2" placeholder="ថ្ងៃ ខែ ឆ្នាំ បូស" [formControl]="beMonkDate">
+        <mat-datepicker #picker2></mat-datepicker>
+        <mat-error *ngIf="beMonkDate.hasError('required')">
+          ថ្ងៃ ខែ ឆ្នាំ បូស is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button (click)="picker.open()">Open</button>
+
+<mat-form-field class="formControls">
+    <input matInput placeholder="ភូមិ" [formControl]="bMvillage">
+    <mat-hint>ភូមផ្កាដូង</mat-hint>
+    <mat-error *ngIf="bMvillage.hasError('required')">
+        ភូមិ is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="formControls">
+      <input matInput placeholder="ឃុំ" [formControl]="bMcommune">
+      <mat-hint>ភូមផ្កាដូង</mat-hint>
+      <mat-error *ngIf="bMcommune.hasError('required')">
+          ឃុំ is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="formControls">
+        <input matInput placeholder="ស្រុក" [formControl]="bMdistrict">
+        <mat-hint>ភូមផ្កាដូង</mat-hint>
+        <mat-error *ngIf="bMdistrict.hasError('required')">
+            ស្រុក is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="formControls">
+          <input matInput placeholder="ខេត្ត" [formControl]="bMprovince">
+          <mat-hint>ភូមផ្កាដូង</mat-hint>
+          <mat-error *ngIf="bMprovince.hasError('required')">
+              ខេត្ត is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="form">
+    <form [formGroup]="form">
+      <ng-template matStepLabel>បដិញ្ញាណ សង្ឃដីកា ឆាយាលេខ</ng-template>
+      
+      <mat-form-field class="formControls">
+        <input matInput placeholder="សង្ឃដីកា/ឆាយា លេខ" [formControl]="monkCertificateNumber">
+        <mat-hint>០០១</mat-hint>
+        <mat-error *ngIf="monkCertificateNumber.hasError('required')">
+          សង្ឃដីកា/ឆាយា លេខ is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="formControls">
+        <input matInput placeholder="បដិញ្ញាណលេខ" [formControl]="localCertificateNumber">
+        <mat-hint>បដិញ្ញាណ</mat-hint>
+        <mat-error *ngIf="localCertificateNumber.hasError('required')">
+          បដិញ្ញាណលេខ is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="formControls">
+        <input matInput placeholder="ចុះថ្ងៃទី" [formControl]="localCertificateDate">
+        <mat-hint>បដិញ្ញាណ</mat-hint>
+        <mat-error *ngIf="localCertificateDate.hasError('required')">
+          បដិញ្ញាណចុះថ្ងៃទី is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      
+      <mat-form-field class="formControls">
+        <input matInput placeholder="របស់មេឃុំ/ចៅសង្កាត់" [formControl]="localCertificateChief">
+        <mat-hint>បដិញ្ញាណ</mat-hint>
+        <mat-error *ngIf="localCertificateChief.hasError('required')">
+          របស់មេឃុំ/ចៅសង្កាត់ is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+        <mat-form-field class="formControls">
+            <input matInput placeholder="ស្រុក" [formControl]="localCertificateDistrict">
+            <mat-hint>ស្រុក​ ខណ្ឌ ក្រុង</mat-hint>
+            <mat-error *ngIf="localCertificateDistrict.hasError('required')">
+                ស្រុក is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="formControls">
+              <input matInput placeholder="ខេត្ត" [formControl]="localCertificateProvince">
+              <mat-hint>រាជធានី ខេត្ត</mat-hint>
+              <mat-error *ngIf="localCertificateProvince.hasError('required')">
+                  ខេត្ត is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+       
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+
+  <mat-step [stepControl]="form" [optional]="isOptional">
+    <form [formGroup]="form">
+      <ng-template matStepLabel>អាសយដ្ឋានបច្ចុប្បន្ន</ng-template>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="អាសយដ្ឋានបច្ចុប្បន្ន" aria-label="State" 
+          [matAutocomplete]="auto" [formControl]="category">
+
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let state of filteredStates | async" [value]="state">   
+              <span>{{state?.wat}}</span>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      <div>
+        <div>
+          <button mat-button (click)="dialogRef.close('no')">Cancel</button>
+          <button mat-button [disabled]="!form.valid || process"
+          (click)="_onSave(form.value)">{{process?'Saving...':'Save'}}</button>
+      </div>
+      </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>

@@ -1,0 +1,182 @@
+<ng-container *mobxAutorun>
+  <div class="nav-category">
+    <h4>បញ្ជីព្រះសង្ឃ</h4>
+    <button (click)="create()" mat-button>
+      <mat-icon>add</mat-icon>
+      <span>ចុះឈ្មោះព្រះសង្ឃ</span>
+    </button>
+  </div>
+
+<div class="data-table">
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+
+        <ng-template matStepLabel>គោត្តនាម នាម ឆាយា/សង្ឃដីការលេខ</ng-template>
+      <app-info-one></app-info-one>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+
+        <ng-template matStepLabel>ថ្ងៃ ខែ ឆ្នាំ ទីកន្លែងកំណើត</ng-template>
+      <app-info-two></app-info-two>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup">
+
+      <ng-template matStepLabel>ថ្ងៃ ខែ ឆ្នាំទីកន្លែងបូស</ng-template>
+      <app-info-three></app-info-three>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup">
+
+    <ng-template matStepLabel>បដិញ្ញាណ</ng-template>
+    <app-info-three></app-info-three>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+
+</mat-step>
+
+<mat-step [stepControl]="secondFormGroup">
+
+  <ng-template matStepLabel>អាសយដ្ឋានបច្ចុប្បន្ន</ng-template>
+  <app-info-four></app-info-four>
+  <div>
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button (click)="stepper.reset()">Reset</button>
+  </div>
+
+</mat-step>
+
+
+    <!-- <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step> -->
+  </mat-horizontal-stepper>
+</div>
+  <!-- <div class="data-table" *ngIf="!store.loading">
+    <table *ngIf="!store?.empty" mat-table [dataSource]="store?.data?.slice()" class="mat-elevation-z8">
+      <ng-container matColumnDef="profile">
+        <th mat-header-cell *matHeaderCellDef>រូបភាព</th>
+        <td mat-cell *matCellDef="let element">
+          <img class="profile" *ngIf="element?.fileUrl" [src]="element?.fileUrl" />
+        </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>គោត្តនាម</th>
+        <td mat-cell *matCellDef="let element"> {{element?.lastName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef>នាម</th>
+        <td mat-cell *matCellDef="let element">
+          {{element?.firstName}}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="enName">
+        <th mat-header-cell *matHeaderCellDef>ឈ្មោះអក្សរឡាតាំង</th>
+        <td mat-cell *matCellDef="let element"> {{element?.enName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="subName">
+        <th mat-header-cell *matHeaderCellDef>នាមបញ្ញាត្តិ</th>
+        <td mat-cell *matCellDef="let element"> {{element?.subName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nation">
+        <th mat-header-cell *matHeaderCellDef>ជនជាតិ</th>
+        <td mat-cell *matCellDef="let element"> {{element?.nation}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nationality">
+        <th mat-header-cell *matHeaderCellDef>សញ្ជាតិ</th>
+        <td mat-cell *matCellDef="let element"> {{element?.nationality}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="monkCertificateNumber">
+        <th mat-header-cell *matHeaderCellDef>ឆាយា/សង្ឃដីការលេខ</th>
+        <td mat-cell *matCellDef="let element"> {{element?.monkCertificateNumber}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="birthOfDate">
+        <th mat-header-cell *matHeaderCellDef>ថ្ងៃ ខែ ឆ្មាំកំណើត</th>
+        <td mat-cell *matCellDef="let element"> {{ element?.birthOfDate.seconds * 1000 | date:'MM-dd-yyyy' }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="birthOfPlace">
+        <th mat-header-cell *matHeaderCellDef>ទីកន្លែងកំណើត</th>
+        <td mat-cell *matCellDef="let element"> {{element?.birthOfPlace}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="beMonkDate">
+        <th mat-header-cell *matHeaderCellDef>ថ្ងៃ ខែ ឆ្នាំបូស</th>
+        <td mat-cell *matCellDef="let element"> {{element?.beMonkDate}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="beMonkPlace">
+        <th mat-header-cell *matHeaderCellDef>ទីកន្លែងបូស</th>
+        <td mat-cell *matCellDef="let element"> {{element?.beMonkPlace}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="localCertificate">
+        <th mat-header-cell *matHeaderCellDef>បដិញ្ញាណ</th>
+        <td mat-cell *matCellDef="let element"> {{element?.localCertificate}} </td>
+      </ng-container>
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>អាសយដ្ឋានបច្ចុប្បន្ន</th>
+        <td mat-cell *matCellDef="let element"> {{element?.category?.wat}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button (click)="delete(element)" mat-menu-item>
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+            <button mat-menu-item (click)="update(element)">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button (click)="onUpdateCover(element)" mat-menu-item>
+              <mat-icon>cloud_upload</mat-icon>
+              <span>Upload</span>
+            </button>
+          </mat-menu>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div class="empty" *ngIf="store?.empty">No category</div>
+  </div>
+  <mat-spinner *ngIf="store.loading"></mat-spinner>
+</ng-container> -->

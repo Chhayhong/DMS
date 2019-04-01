@@ -1,0 +1,100 @@
+<!-- <div class="Dialog">
+  <h1 mat-dialog-title>បំពេញប្រវត្តិរូបព្រះសង្ឃ</h1>
+  <div mat-dialog-content>
+      <form [formGroup]="form">
+          <mat-form-field class="formControls">
+            <input matInput placeholder="គោត្តនាម" [formControl]="firstName">
+            <mat-hint>ថាត ឆៃហង្ស</mat-hint>
+            <mat-error *ngIf="firstName.hasError('required')">
+              គោត្តនាម is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="formControls">
+            <input matInput placeholder="នាម" [formControl]="lastName">
+            <mat-hint>ថាត ឆៃហង្ស</mat-hint>
+            <mat-error *ngIf="lastName.hasError('required')">
+              នាម is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="formControls">
+            <input matInput placeholder="នាមបញ្ញត្តិ" [formControl]="subname">
+            <mat-hint>អគ្គបុត្តោ</mat-hint>
+            <mat-error *ngIf="subname.hasError('required')">
+              នាមបញ្ញត្តិ is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="formControls">
+            <input matInput placeholder="អាយុ" [formControl]="age">
+            <mat-hint>២៥ ឆ្នាំ</mat-hint>
+            <mat-error *ngIf="age.hasError('required')">
+              អាយុ is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="formControls">
+            <input matInput placeholder="បូសបាន" [formControl]="monkAge">
+            <mat-hint>១០ វស្សា</mat-hint>
+            <mat-error *ngIf="monkAge.hasError('required')">
+              បូសបាន is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="អាសយដ្ឋានបច្ចុប្បន្ន" aria-label="State" 
+            [matAutocomplete]="auto" [formControl]="category">
+
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+              <mat-option *ngFor="let state of filteredStates | async" [value]="state">   
+                <span>{{state.wat}}</span>
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+        </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="dialogRef.close('no')">Cancel</button>
+    <button mat-button [disabled]="!form.valid || process"
+    (click)="_onSave(form.value)">{{process?'Saving...':'Save'}}</button>
+    </div>
+   -->
+
+   <h1 mat-dialog-title>Add new product</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form" class="example-form">
+    <mat-form-field class="formControls">
+      <input matInput placeholder="Name" [formControl]="name">
+      <mat-hint>Enter full name category!</mat-hint>
+      <mat-error *ngIf="name.hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="formControls">
+      <input matInput type="number" placeholder="Price" [formControl]="price">
+      <mat-hint>Enter selling price</mat-hint>
+      <mat-error *ngIf="price.hasError('required')">
+        Price is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+
+      <input matInput placeholder="Select category" aria-label="State" 
+      [matAutocomplete]="auto" [formControl]="category">
+
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let state of filteredStates | async" [value]="state">
+          <span>{{state.wat}}</span></mat-option>
+      </mat-autocomplete>
+
+    </mat-form-field>
+  
+    
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close('no')">Cancel</button>
+  <button mat-button (click)="_onSave(form.value)" cdkFocusInitial>Save</button>
+</div>

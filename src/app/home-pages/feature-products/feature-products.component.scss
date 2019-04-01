@@ -1,0 +1,23 @@
+.grid-container {
+    display: grid;
+    padding:9px;
+    grid-gap: 6px;
+}
+
+.grid-container--fill {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.grid-container--fit {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.grid-element {
+  background-color: deepPink;
+  padding: 20px;
+  color: #fff;
+  border: 1px solid #fff;
+  height: 180px;
+  border-radius: 5px;
+
+}
+

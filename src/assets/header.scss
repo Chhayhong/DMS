@@ -1,0 +1,19 @@
+        .nav-header {
+            background-color: $primary;
+            padding: 8px 24px;
+            min-height: 48px;
+            color:#fff;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .brand-name{
+            flex:1;
+        }
+        .headerfont{
+            font-size:20px;
+            padding: 0px 20px 0px 20px;
+        }
+        icon{
+            font-size:20px;
+        }

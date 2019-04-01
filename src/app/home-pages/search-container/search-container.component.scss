@@ -1,0 +1,20 @@
+.searchbox{
+    background-image: url("https://ae01.alicdn.com/kf/HTB1pazNKVXXXXcHXFXXq6xXFXXXV/201380146/HTB1pazNKVXXXXcHXFXXq6xXFXXXV.jpg?size=144740&height=404&width=1000&hash=28ab98156dafcc73c709779da493b69a");
+    height: 300px;
+    font-size: 24px;
+    font-weight: 600px,
+}
+* {box-sizing: border-box;}
+
+.middle{
+    align-items: center;
+    padding-top: 90px;
+  
+    input{
+        color: rgb(255, 255, 255);
+        background-color: rgb(255, 255, 255);
+        border-radius: 5px;
+        height: 40px;
+    }
+
+}
