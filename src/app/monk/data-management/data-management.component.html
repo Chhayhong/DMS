@@ -1,0 +1,132 @@
+<div class="container">
+    <mat-accordion class="subcontainer">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>បញ្ជីបឋម</h3>
+            </mat-panel-title>
+            <mat-panel-description>
+              ចុចទីនេះដើម្បីបញ្ចូលពត៌មាន
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <div class="my-card">
+              <form [formGroup]="form">
+                <mat-form-field class="my-form">
+                  <input matInput placeholder="គោត្តនាម" [formControl]="lastName">
+                  <mat-hint>ថាត </mat-hint>
+                  <mat-error *ngIf="lastName.hasError('required')">
+                    នាម ត្រូវតែបញ្ចូល <strong>ទីនេះ</strong>
+                  </mat-error>
+                </mat-form-field>
+          
+                <mat-form-field class="my-form">
+                  <input matInput placeholder="នាម" [formControl]="firstName">
+                  <mat-hint>ឆៃហង្ស</mat-hint>
+                  <mat-error *ngIf="firstName.hasError('required')">
+                    គោត្តនាម ត្រូវតែបញ្ចូល <strong>ទីនេះ</strong>
+                  </mat-error>
+                </mat-form-field>
+          
+                <mat-form-field class="my-form">
+                  <input matInput placeholder="នាមបញ្ញត្តិ" [formControl]="subName">
+                  <mat-hint>ឥន្ទប្បញ្ញោ</mat-hint>
+                  <mat-error *ngIf="subName.hasError('required')">
+                    នាមបញ្ញត្តិ ត្រូវតែបញ្ចូល <strong>ទីនេះ</strong>
+                  </mat-error>
+                </mat-form-field>
+          
+                <mat-form-field class="my-form">
+                  <mat-label>ថ្ងៃ ខែ ឆ្នាំកំណើត</mat-label>
+                  <input type="date" matInput  placeholder="ថ្ងៃ ខែ ឆ្នាំកំណើត" [formControl]="birthOfDate">
+                  <mat-error *ngIf="birthOfDate.hasError('required')">
+                    ថ្ងៃ ខែ ឆ្នាំកំណើត is <strong>required</strong>
+                  </mat-error>
+                  <mat-hint>ថ្ងៃទី ០៤ ខែ មេសា ឆ្នាំ ១៩៩៥</mat-hint>
+                </mat-form-field>
+          
+                <mat-form-field class="my-form">
+                  <mat-label>ថ្ងៃ ខែ ឆ្នាំ បូស</mat-label>
+                  <input matInput [matDatepicker]="myPicker2" placeholder="ថ្ងៃ ខែ ឆ្នាំ បូស" [formControl]="beMonkDate">
+                  <mat-datepicker-toggle matSuffix [for]="myPicker2"></mat-datepicker-toggle>
+                  <mat-datepicker #myPicker2></mat-datepicker>
+                  <mat-error *ngIf="beMonkDate.hasError('required')">
+                    ថ្ងៃ ខែ ឆ្នាំ បូស is <strong>required</strong>
+                  </mat-error>
+                  <mat-hint>ថ្ងៃទី ០៤ ខែ មេសា ឆ្នាំ ២០០៦</mat-hint>
+                </mat-form-field>
+          
+                <mat-form-field class="my-form">
+                  <input matInput placeholder="ភូមិ" [formControl]="village">
+                  <mat-hint>ភូមផ្កាដូង</mat-hint>
+                  <mat-error *ngIf="village.hasError('required')">
+                      ភូមិ is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+          
+                <mat-form-field class="my-form">
+                    <input matInput placeholder="ឃុំ" [formControl]="commune">
+                    <mat-hint>ភូមផ្កាដូង</mat-hint>
+                    <mat-error *ngIf="commune.hasError('required')">
+                        ឃុំ is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+          
+                  <mat-form-field class="my-form">
+                      <input matInput placeholder="ស្រុក" [formControl]="district">
+                      <mat-hint>ភូមផ្កាដូង</mat-hint>
+                      <mat-error *ngIf="district.hasError('required')">
+                          ស្រុក is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+          
+                    <mat-form-field class="my-form">
+                        <input matInput placeholder="ខេត្ត" [formControl]="province">
+                        <mat-hint>ភូមផ្កាដូង</mat-hint>
+                        <mat-error *ngIf="province.hasError('required')">
+                            ខេត្ត is <strong>required</strong>
+                        </mat-error>
+                      </mat-form-field>
+          
+                      <mat-form-field class="my-form">
+                        <input matInput placeholder="គង់នៅកុដិ" [formControl]="livingIn">
+                        <mat-hint>កុដិលេខបី</mat-hint>
+                        <mat-error *ngIf="livingIn.hasError('required')">
+                          គង់នៅកុដិ is <strong>required</strong>
+                        </mat-error>
+                      </mat-form-field>
+          
+                      <mat-form-field class="my-form">
+                        <input matInput placeholder="លេខទូរស័ព្ទ" [formControl]="phone">
+                        <mat-hint>០១១ ៩០​ ៥៦</mat-hint>
+                        <mat-error *ngIf="phone.hasError('required')">
+                          គង់នៅកុដិ is <strong>required</strong>
+                        </mat-error>
+                      </mat-form-field>
+          
+                <mat-form-field class="my-form">
+                  <input matInput placeholder="ឆាយា/សង្ឃដីការ លេខ" [formControl]="monkCertificateNumber">
+                  <mat-hint>០០១</mat-hint>
+                  <mat-error *ngIf="monkCertificateNumber.hasError('required')">
+                    លេខ​ ឆាយា/សង្ឃដីការ ត្រូវតែបញ្ចូល <strong>ទីនេះ</strong>
+                  </mat-error>
+                </mat-form-field>
+                <br>
+                <br>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="my-form" [formControl]="level">
+                  <mat-radio-button class="example-radio-button" *ngFor="let level of checklevel" [value]="level">
+                    <p>{{level}}</p>
+                  </mat-radio-button>
+                </mat-radio-group>
+              </form>
+          
+              <button matTooltip="បញ្ចូលទិន្ន័យខាងលើ" color="primary" mat-button [disabled]="!form.valid || process"
+                (click)="_onSave(form.value)">
+                <h4>{{process?'កំពុងបញ្ចូល...':'បញ្ចូល'}}</h4>
+              </button>
+            </div>
+        </mat-expansion-panel>
+        </mat-accordion>
+ 
+  <app-info-one class="my-data"></app-info-one>
+</div>

@@ -1,0 +1,28 @@
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <button mat-button >
+            <div class="sidebar-item">
+                <mat-icon>account_circle
+                </mat-icon>
+                <h1 class="kh-font">{{user?.user?.displayName}}</h1>
+              </div>
+        </button>
+      </mat-expansion-panel-header>
+      <button mat-button >
+          <div class="sidebar-item">
+              <mat-icon>mail_outline
+              </mat-icon>
+              <h1 class="kh-font">{{user?.user?.email}}</h1>
+            </div>
+      </button>
+      <button mat-button  (click)="logOut()" >
+          <div class="sidebar-item">
+              <mat-icon>exit_to_app
+              </mat-icon>
+              <span>Sign out</span>
+            </div>
+            </button>
+    </mat-expansion-panel>
+  </mat-accordion>

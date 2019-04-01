@@ -1,0 +1,32 @@
+<!-- <app-header></app-header>
+<div class="app-layout">
+    <div class="app-sidebar">
+        <app-side-bar></app-side-bar>
+    </div>
+    <div class="app-contain">
+        <router-outlet></router-outlet>
+    </div>
+</div> -->
+
+
+<mat-sidenav-container class="homeContainer">
+    <mat-sidenav #sidenav [mode]="push">
+      <p><button mat-button (click)="sidenav.toggle()"></button></p>
+<app-side-bar></app-side-bar>
+    </mat-sidenav>
+    <mat-sidenav-content  class="flx1">
+        <!-- <app-front-header class="header"></app-front-header>    -->
+      <button mat-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+     
+      <div class="homeContainer">
+        <div>
+            <!-- <div class="app-sidebar">
+                <app-side-bar></app-side-bar>
+            </div> -->
+            <div class="homeContainer">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+</div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

@@ -1,0 +1,66 @@
+
+@import "./variables.scss";
+@import "./header.scss";
+@import "./KhmerFont.scss";
+.header{
+    width: 100%;
+    display:flex;
+    position: fixed;
+    padding-bottom: 64px;
+    font-family: Roboto,"Google sans",sans-serif;
+    text-align: justify;
+}
+mat-form-field{
+  font-size: 13px;
+  font-family:  Kh-Battambang;
+ line-height: 2; 
+  color: black;
+  width: 280px;
+  border: 1px;
+  margin-top: 9px;
+  padding-right: 10px;
+}
+input{
+  height: 26px;
+  padding: 3px;
+}
+
+.container{
+    width: 1084px;
+    margin: 0 auto;
+    overflow:hidden;
+    height: 100vh;
+    align-items: center;
+    .my-form{
+      min-width: 150px;
+      max-width: 400px;
+      .subcontainer{
+        fill-opacity: inherit;
+        overflow:hidden;
+      }
+    }    
+    .my-card{
+      width: 956px;
+      max-width: 100%;
+      margin: 0 auto;
+    
+      mat-form-field{
+        font-size: 16px;
+        font-family:  Kh-Battambang;
+       line-height: 2; 
+        color: black;
+        width: 180px;
+        border: 1px;
+        margin-top: 9px;
+        padding-right: 10px;
+      }
+      input{
+        height: 26px;
+        padding: 3px;
+      }
+    }
+    .my-data{
+  
+    }
+  }
+  

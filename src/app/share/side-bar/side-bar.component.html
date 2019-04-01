@@ -1,0 +1,122 @@
+<div class="sidebar">
+    <mat-accordion>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <button mat-button >
+              <div *ngIf="auth.user | async; then authenticated else pguest">
+                <!-- template will replace this div -->
+              </div>
+              
+              <ng-template #authenticated class="sidebar-item">                    
+                <div class="sidebar-item">
+                  <h3  class="sidebar-item" *ngIf="auth.user | async as user">  
+                     <img class="profile" [src]="user.photoURL" alt="user profile">{{user.displayName}}</h3>
+                </div>
+                    
+
+              </ng-template>
+              
+              
+              <ng-template #pguest class="sidebar-item">
+                <div class="sidebar-item">
+                  <mat-icon>face</mat-icon>
+                  <h3>មិនទាន់ចូលប្រព័ន្ធ</h3>
+                </div>
+                    
+                     
+   
+              </ng-template>
+            </button>
+          </mat-expansion-panel-header>
+          <!-- <button mat-button >
+              <div class="sidebar-item">
+                  <mat-icon>mail_outline
+                  </mat-icon>
+                  <h1 class="kh-font">{{user?.user?.email}}</h1>
+                </div>
+          </button>
+          <button mat-button  (click)="logOut()" >
+              <div class="sidebar-item">
+                  <mat-icon>exit_to_app
+                  </mat-icon>
+                  <span >Sign out</span>
+                </div>
+                </button> -->
+                <div *ngIf="auth.user | async; then authenticate else guest">
+                    <!-- template will replace this div -->
+                  </div>
+                  
+                  <ng-template #authenticate class="sidebar-item">
+                    <div class="Profilecontainer">
+                      <div class="wraper" *ngIf="auth.user | async as user">
+         
+
+       
+                        <button class="sidebar-item"   mat-button >
+                          <mat-icon>tag_faces</mat-icon>
+                          <span>ឈ្មោះ {{user.displayName}}</span>
+                        </button>
+                        <button class="sidebar-item"   mat-button >
+                          <mat-icon>email</mat-icon>
+                          <span>អ៊ីមែល {{user.email}}</span>
+                        </button>
+
+                        <button routerLinkActive="active" class="sidebar-item"   mat-button (click)="auth.signOut()">
+                          <mat-icon>exit_to_app</mat-icon>
+                          <span>ចាកចេញ</span>
+                        </button>
+                      </div>
+                    </div>
+                  </ng-template>
+                  
+                  
+                  <ng-template #guest class="sidebar-item"> 
+                    <div class="home-container">
+                      <div class="wraper">
+                        <div class="profil-img">
+                        </div>
+                        <div class="profil-name" >
+                          <h2>ស្វាគមន៍</h2>
+                          <h1>ភ្ញៀវ</h1>
+                        </div>
+                        <br>
+                        <button routerLinkActive="active" [routerLink]="['/login']"class="sidebar-item"   mat-button>
+                          <mat-icon>lock</mat-icon>
+                          <span>ចូលប្រព័ន្ធ</span>
+                        </button>
+                      </div>
+                    </div>
+                  </ng-template>
+        </mat-expansion-panel>
+      </mat-accordion>
+  <button routerLinkActive="active" [routerLink]="['/apps/home']"class="sidebar-item"   mat-button>
+    <mat-icon>computer</mat-icon>
+    <span>ផ្ទាំងគ្រប់គ្រង</span>
+  </button>
+  <button mat-button [matMenuTriggerFor]="menu" class="sidebar-item" >
+      <mat-icon>list_alt</mat-icon>
+      <span>ចុះបញ្ជីនាមព្រះសង្ឃ</span></button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>  <button routerLinkActive="active" [routerLink]="['/apps/monk']" class="sidebar-item"   mat-button>
+      <span>ពត៌មានសមីខ្លួន
+      </span>
+    </button></button>
+  </mat-menu>
+<!-- 
+  <button routerLinkActive="active" [routerLink]="['/apps/monk']" class="sidebar-item"   mat-button>
+    <mat-icon>list_alt</mat-icon>
+    <span>ចុះបញ្ជីនាមព្រះសង្ឃ</span>
+  </button> -->
+  <button routerLinkActive="active" [routerLink]="['/apps/monkhouse']" class="sidebar-item"  mat-button>
+    <mat-icon>home</mat-icon>
+    <span>ចុះឈ្មោះ កុដិ</span>
+  </button>
+  <button routerLinkActive="active" [routerLink]="['/apps/pagoda']" class="sidebar-item"  mat-button>
+    <mat-icon>add_location</mat-icon>
+    <span>ចុះឈ្មោះ វត្ត</span>
+  </button>
+  <button routerLinkActive="active" [routerLink]="['/apps/address']" class="sidebar-item"  mat-button>
+    <mat-icon>add_location</mat-icon>
+    <span>ចុះឈ្មោះ អាសយដ្ឋានទីក្រុងភ្នំពេញ</span>
+  </button>
+</div>

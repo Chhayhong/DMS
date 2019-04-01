@@ -1,0 +1,62 @@
+<div class="Dialog">
+    <h1 mat-dialog-title>បញ្ជីកុដិក្នុងវត្ត</h1>
+    <div mat-dialog-content>
+        <form [formGroup]="form">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="កុដិស្ថិតនៅវត្ត" aria-label="State" 
+                [matAutocomplete]="auto" [formControl]="category">
+    
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                  <mat-option *ngFor="let state of filteredStates | async" [value]="state">   
+                    <span>{{state?.wat}}</span>
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            <mat-form-field class="formControls">
+              <input matInput placeholder="កុដិឈ្មោះ" [formControl]="homeName">
+              <mat-hint>កុដិលេខបី</mat-hint>
+              <mat-error *ngIf="homeName.hasError('required')">
+                  កុដិឈ្មោះ is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+  
+            <mat-form-field class="formControls">
+              <input matInput placeholder="ឈ្មោះគណៈគ្រប់គ្រងកុដិ" [formControl]="homeLeader">
+              <mat-hint>ថាត​ ឆៃហង្ស</mat-hint>
+              <mat-error *ngIf="homeLeader.hasError('required')">
+                ឈ្មោះគណៈគ្រប់គ្រងកុដិ is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input matInput [matDatepicker]="picker" placeholder="កសាងនៅឆ្នាំ" [formControl]="homeBuildDate">
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="homeBuildDate.hasError('required')">
+                កសាងនៅឆ្នាំ is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <button mat-raised-button (click)="picker.open()">Open</button>
+  
+            <mat-form-field class="formControls">
+              <input matInput placeholder="កុដិមានប៉ន្មានជាន់" [formControl]="homeFloors">
+              <mat-hint>៣ ជាន់</mat-hint>
+              <mat-error *ngIf="homeFloors.hasError('required')">
+                កុដិមានប៉ន្មានជាន់ is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <!-- <mat-form-field>
+              <mat-select placeholder="Select me">
+                <mat-option *ngFor="let state of filteredStates | async" [value]="state">{{state?.wat}}</mat-option>
+              </mat-select>
+              <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+            </mat-form-field> -->
+  
+          </form>
+    </div>
+    
+    <div mat-dialog-actions>
+      <button mat-button (click)="dialogRef.close('no')">Cancel</button>
+      <button mat-button [disabled]="!form.valid || process"
+      (click)="_onSave(form.value)">{{process?'Saving...':'Save'}}</button>
+      </div>
+    

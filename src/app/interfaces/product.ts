@@ -1,0 +1,35 @@
+export interface IProduct {
+    key: string;
+    firstName: string;
+    lastName?:string;
+    enName?: any;
+    level?:any;
+    phone?:number;
+    livingIn?:any;
+    subName?: any;
+    nation?:any;
+    nationality?:any;
+    monkCertificateNumber?:any;
+    birthOfDate?:Date;
+    birthOfPlace?:any;
+    beMonkDate?:Date;
+    bMvillage?:any;
+    bMcommune?:any;
+    bMdistrict?:any;
+    bMprovince?:any;
+    village?:any;
+    commune?:any;
+    district?:any;
+    province?:any;
+    localCertificateNumber?:any;
+    localCertificateDate?:any;
+    localCertificateChief?:any;
+    localCertificateDistrict?:any;
+    localCertificateProvince?:any;
+    presentAddress?:any;
+    category?:any;
+    createBy?: any;
+    createDate?: Date;
+    updateBy?: any;
+    updateDate?: Date;
+}
