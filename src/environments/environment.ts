@@ -5,12 +5,7 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyCug_yIbYAlfh3M96vCMXENJpfvEC4KUPw",
-    authDomain: "educom-83b9d.firebaseapp.com",
-    databaseURL: "https://educom-83b9d.firebaseio.com",
-    projectId: "educom-83b9d",
-    storageBucket: "educom-83b9d.appspot.com",
-    messagingSenderId: "665896884274"
+   // key
   }
 };
 /*
